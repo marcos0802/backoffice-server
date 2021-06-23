@@ -10,8 +10,8 @@ import {
 
 const router = express.Router();
 
-router.get("/api", getProjects);
-router.post("/:id", createProject);
+router.get("/", getProjects);
+router.post("/", createProject);
 router.get("/:id", getProject);
 router.delete("/:id", deleteProject);
 router.patch("/:id", updateProject);
