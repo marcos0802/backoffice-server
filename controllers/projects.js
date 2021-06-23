@@ -25,7 +25,7 @@ export const createProject = async (req, res) => {
 
   await db.query(sql, project, (err, result) => {
     if (err) res.status(404).json({ message: err.message });
-    res.status(201).redirect("/projects");
+    res.status(201).json(result);
   });
 };
 
@@ -35,7 +35,7 @@ export const deleteProject = async (req, res) => {
 
   await db.query(sql, id, (err, result) => {
     if (err) res.status(404).json({ message: err.message });
-    res.status(201).redirect("/projects");
+    res.status(200).json(result);
   });
 };
 
@@ -46,6 +46,6 @@ export const updateProject = async (req, res) => {
 
   await db.query(sql, [updatedProject, id], (err, result) => {
     if (err) res.status(404).json({ message: err.message });
-    res.status(201).redirect("/projects");
+    res.status(200).json(result);
   });
 };
