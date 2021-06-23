@@ -13,6 +13,10 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.redirect("/projects");
+});
+
 app.use("/projects", projectsRoutes);
 
 const PORT = process.env.PORT || 5000;
