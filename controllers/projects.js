@@ -5,7 +5,7 @@ export const getProjects = async (req, res) => {
 
   await db.query(sql, (err, results) => {
     if (err) res.status(404).json({ message: err.message });
-    res.status(200).json({ projects: results });
+    res.status(200).json(results);
   });
 };
 
