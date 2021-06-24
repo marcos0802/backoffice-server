@@ -7,17 +7,8 @@ import db from "./config/db.js";
 import projectsRoutes from "./routes/projects.js";
 
 const app = express();
-dotenv.config();
-
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-
-app.get("/", (req, res) => {
-  res.redirect("/projects");
-});
-
-app.use("/projects", projectsRoutes);
+dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
@@ -28,3 +19,12 @@ db.connect((err) => {
     app.listen(PORT, () => {});
   }
 });
+
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+
+app.get("/", (req, res) => {
+  res.redirect("/projects");
+});
+
+app.use("/projects", projectsRoutes);
