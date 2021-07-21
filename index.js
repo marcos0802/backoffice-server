@@ -7,6 +7,7 @@ import db from "./config/db.js";
 import projectsRoutes from "./routes/projects.js";
 
 const app = express();
+app.use(express.json());
 app.use(cors());
 dotenv.config();
 
